@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Dear 🎂❤️</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+body{
+  background:linear-gradient(120deg,#ff758c,#ffb199);
+  color:#333;
+  text-align:center;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(255,255,255,0.9);
+  padding:10px;
+  z-index:1000;
+}
+nav button{
+  margin:5px;
+  padding:8px 15px;
+  border:none;
+  border-radius:20px;
+  background:#ff4d6d;
+  color:white;
+  cursor:pointer;
+}
+
+/* SECTIONS */
+section{
+  min-height:100vh;
+  padding:90px 20px;
+  display:none;
+}
+section.active{
+  display:block;
+}
+
+/* HERO */
+.hero{
+  color:white;
+}
+.hero h1{
+  font-size:2.6rem;
+}
+.hero p{
+  margin-top:10px;
+  font-size:1.2rem;
+}
+
+/* CARD */
+.card{
+  background:white;
+  padding:25px;
+  margin:25px auto;
+  border-radius:20px;
+  max-width:850px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* GALLERY */
+.gallery{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+}
+.gallery img{
+  width:260px;
+  height:320px;
+  object-fit:cover;
+  border-radius:15px;
+  box-shadow:0 8px 15px rgba(0,0,0,0.3);
+}
+
+/* PASSWORD */
+input{
+  padding:10px;
+  width:70%;
+  margin-top:10px;
+}
+.action{
+  margin-top:15px;
+  padding:10px 20px;
+  background:#ff4d6d;
+  color:white;
+  border:none;
+  border-radius:15px;
+  cursor:pointer;
+}
+
+/* VIDEO */
+#videoBox{
+  display:none;
+}
+video{
+  width:100%;
+  max-width:700px;
+  border-radius:20px;
+  margin-top:20px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .hero h1{font-size:2rem;}
+  .gallery img{width:90%;height:auto;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <button onclick="showSection('home')">Home</button>
+  <button onclick="showSection('memories')">Memories</button>
+  <button onclick="showSection('surprise')">Surprise 🎁</button>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="active hero">
+  <h1>Happy Birthday My Best Friend 🎂❤️</h1>
+  <p>Today is special… because YOU are special 💖</p>
+
+  <div class="card">
+    <p>
+      On your birthday, I just want you to know one thing —
+      you are the most beautiful blessing in my life.
+      Your smile is my happiness, your presence is my peace,
+      and loving you is my favorite feeling.
+    </p>
+  </div>
+</section>
+
+<!-- MEMORIES -->
+<section id="memories">
+  <h2>Our Sweet Memories 📸</h2>
+  <div class="gallery">
+    <img src="image/p1.jpg">
+    <img src="image/p2.jpg">
+    <img src="image/p3.jpg">
+  </div>
+</section>
+
+<!-- SURPRISE -->
+<section id="surprise">
+  <h2>Birthday Surprise 🔐</h2>
+
+  <div class="card">
+    <p>Enter the secret password 💝</p>
+    <input type="password" id="pass">
+    <br>
+    <button class="action" onclick="unlock()">Unlock Surprise</button>
+  </div>
+
+  <div class="card" id="videoBox">
+    <h3>Just for You ❤️</h3>
+    <video controls>
+      <source src="image/love.mp4" type="video/mp4">
+      Your browser does not support video.
+    </video>
+    <p style="margin-top:15px;">
+      I hope this small surprise makes you smile today and always.
+      Happy Birthday, my bestie 💖🎂
+    </p>
+  </div>
+</section>
+
+<script>
+function showSection(id){
+  document.querySelectorAll("section").forEach(sec=>{
+    sec.classList.remove("active");
+  });
+  document.getElementById(id).classList.add("active");
+}
+
+function unlock(){
+  if(document.getElementById("pass").value === "love123"){
+    document.getElementById("videoBox").style.display="block";
+  }else{
+    alert("Wrong password 😅");
+  }
+}
+</script>
+
+</body>
+</html>
